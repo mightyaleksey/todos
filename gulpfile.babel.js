@@ -2,6 +2,8 @@ import browserify from 'browserify';
 import gulp from 'gulp';
 import vinyl from 'vinyl-source-stream';
 
+gulp.task('default', ['js']);
+
 gulp.task('js', () => browserify()
   .add('browser.js')
   .transform('babelify')
