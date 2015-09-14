@@ -1,22 +1,18 @@
 import { connect } from 'react-redux';
-import React, { Component } from 'react';
-import Todos from '../todos';
+import React from 'react';
+import Header from '../header';
+import TaskList from '../task-list';
 import UserInput from '../user-input';
-import css from './index.css';
 
-const Input = connect()(UserInput);
-const List = connect(state => state)(Todos);
+const ConnectedUserInput = connect(state => ({userInput: state.userInput}))(UserInput);
+const ConnectedTaskList = connect(state => ({taskList: state.taskList}))(TaskList);
 
-export default class App extends Component {
-  render() {
-    return (
-      <section className={ css.app }>
-        <header className={ css.header }>
-          <h1 className={ css.title }>todos</h1>
-          <Input />
-          <List />
-        </header>
-      </section>
-    );
-  }
-}
+export default const App = props => {
+  return (
+    <section>
+      <Header>todos</Header>
+      <ConnectedUserInput />
+      <ConnectedTaskList />
+    </section>
+  );
+};

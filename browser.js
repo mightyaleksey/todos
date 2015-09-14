@@ -1,3 +1,7 @@
-import React, { render } from 'react';
+import reducer from './reducer';
+import { createStore } from 'redux';
+import React, { render } from 'React';
 import Container from './components/container';
-render(<Container />, document.body);
+
+const store = createStore(reducer);
+render(<Container store={ store } />, document.body);
