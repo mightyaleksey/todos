@@ -34,7 +34,7 @@
     "postcss-url": "4.x",
     "react": "^0.14.0-rc1",
     "react-redux": "^2.1.2",
-    "redux": "^1.0.1",
+    "redux": "^3.0.0",
     "vinyl-source-stream": "^1.1.0"
   }
 }
