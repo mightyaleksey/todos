@@ -8,10 +8,7 @@ import styles from './index.css';
 
 const ConnectedUserInput = connect(state => ({userInput: state.userInput}))(UserInput);
 const ConnectedTaskList = connect(state => ({taskList: state.taskList}))(TaskList);
-const ConnectedStatus = connect(state => ({
-  finishedCount: state.finishedCount,
-  unfinishedCount: state.unfinishedCount
-}))(Status);
+const ConnectedStatus = connect(state => ({unfinishedCount: state.unfinishedCount}))(Status);
 
 export default props => {
   return (
