@@ -1,5 +1,5 @@
 import { ADD, REMOVE, TOGGLE, UPDATE_USER_INPUT } from '../actions';
-import { assign, filter, findIndex } from 'lodash';
+import { assign, findIndex } from 'lodash';
 
 const initialState = {
   taskList: [],
@@ -22,7 +22,7 @@ export default function reducer(state = initialState, action) {
     return state;
 
   case REMOVE:
-    state.taskList = filter(state.taskList, {taskId: action.taskId});
+    state.taskList = state.taskList.filter(({ taskId }) => taskId !== action.taskId);
     return state;
 
   case TOGGLE:

@@ -6,8 +6,8 @@ const ConnectedTask = connect()(Task);
 
 export default class TaskList extends Component {
   render() {
-    const tasks = [{taskId: 2, description: 'test'}]
-      .map(task => <ConnectedTask key={ task.taskId } { ...task } />);
+    const { taskList = [] } = this.props;
+    const tasks = taskList.map(task => <ConnectedTask key={ task.taskId } { ...task } />);
 
     return <ul>{ tasks }</ul>;
   }
