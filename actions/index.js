@@ -9,16 +9,16 @@ export function add(description) {
   };
 }
 
-export function remove(id) {
+export function remove(taskId) {
   return {
     type: REMOVE,
-    id: id
+    taskId: taskId
   };
 }
 
-export function toggle(id) {
+export function toggle(taskId) {
   return {
     type: TOGGLE,
-    id: id
+    taskId: taskId
   };
 }

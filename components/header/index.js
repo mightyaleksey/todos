@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default const Header = ({ children }) => {
+export default ({ children }) => {
   return <header>{ children }</header>;
 };

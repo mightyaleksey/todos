@@ -2,10 +2,10 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import App from '../app';
 
-export default const Container = ({ store }) => {
+export default ({ store }) => {
   return (
     <Provider store={ store }>
-      { () => <App /> }
+      <App />
     </Provider>
   );
 };

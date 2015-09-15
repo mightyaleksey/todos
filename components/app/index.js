@@ -7,7 +7,7 @@ import UserInput from '../user-input';
 const ConnectedUserInput = connect(state => ({userInput: state.userInput}))(UserInput);
 const ConnectedTaskList = connect(state => ({taskList: state.taskList}))(TaskList);
 
-export default const App = props => {
+export default props => {
   return (
     <section>
       <Header>todos</Header>

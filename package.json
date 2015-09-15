@@ -4,7 +4,7 @@
   "description": "Simple application to show the benefits of using css-modules",
   "main": "index.js",
   "scripts": {
-    "start": "gulp && node index.js",
+    "start": "gulp && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -32,9 +32,8 @@
     "postcss-modules-extract-imports": "0.0.5",
     "postcss-modules-local-by-default": "0.0.12",
     "postcss-modules-scope": "0.0.8",
-    "react": "^0.13.3",
-    "react-redux": "^0.9.0",
-    "redux": "^1.0.1",
-    "redux-react": "^1.0.3"
+    "react": "^0.14.0-rc1",
+    "react-redux": "^2.1.2",
+    "redux": "^1.0.1"
   }
 }

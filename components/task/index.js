@@ -1,6 +1,16 @@
+import { remove } from '../../actions';
 import React from 'react';
-import IconState from '../icon-state';
+import Icon from '../icon';
 
-export default const Task = ({ dispatch }) => {
+// smart
+export default ({ taskId, description, dispatch }) => {
+  const action = remove(taskId);
 
+  return (
+    <li>
+      <Icon />
+      <span>{ description }</span>
+      <Icon onClick={ () => dispatch(action) } />
+    </li>
+  );
 };
