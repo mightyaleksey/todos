@@ -1,19 +1,47 @@
 import browserify from 'browserify';
 import gulp from 'gulp';
 import vinyl from 'vinyl-source-stream';
+import { resolve } from 'path';
 
-gulp.task('default', ['js']);
+import Autoprefixer from 'autoprefixer';
+import Extract from 'postcss-modules-extract-imports';
+import Local from 'postcss-modules-local-by-default';
+import Scope from 'postcss-modules-scope';
+import FixPaths from './postcss-fix-paths'
+import Reporter from 'postcss-reporter';
+import Url from 'postcss-url';
+
+gulp.task('default', ['css', 'js']);
+
+gulp.task('css', () => gulp.src('styles/globals.css')
+  .pipe(gulp.dest('static')));
 
 gulp.task('js', () => browserify()
   .add('browser.js')
   .transform('babelify')
   .plugin('css-modulesify', {
-    d: __dirname,
-    o: 'static/common.css'
+    output: 'static/common.css',
+    rootDir: __dirname,
+    use: [
+      Extract,
+      Local,
+      Scope,
+
+      new FixPaths({
+        rootDir: __dirname,
+        to: resolve('static/common.css')
+      }),
+      new Url({
+        assetsPath: 'fonts',
+        url: 'copy'
+      }),
+      Reporter,
+      Autoprefixer
+    ]
   })
   .bundle({debug: true})
   .on('error', err => console.error(err.message))
   .pipe(vinyl('browser.js'))
   .pipe(gulp.dest('static')));
 
-gulp.task('watch', () => gulp.watch(['components/*/*.@(css|js)'], ['js']));
+gulp.task('watch', ['css', 'js'], () => gulp.watch(['components/*/*.@(css|js)'], ['js']));

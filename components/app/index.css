@@ -1,36 +1,50 @@
-body
+.shadow
 {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2), 0 25px 50px 0 rgba(0, 0, 0, .1);
+}
 
-    background: #f5f5f5;
+.shader
+{
+  position: absolute;
+
+  display: block;
+
+  content: '';
+
+  background: #fff;
 }
 
 .app
 {
-    box-sizing: border-box;
-    width: 550px;
-    margin: 200px auto 0;
+  position: relative;
 
-    background: #fff;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2), 0 25px 50px 0 rgba(0, 0, 0, .1);
+  width: 550px;
+  margin: 0 auto;
+  margin-top: 165px;
+
+  composes: shadow;
 }
 
-.header
+.app:before
 {
-    position: relative;
+  z-index: -1;
+  bottom: -5px;
+  left: 1%;
 
-    text-align: center;
+  width: 98%;
+  height: 5px;
+
+  composes: shader shadow;
 }
 
-.title
+.app:after
 {
-    font-size: 100px;
+  z-index: -2;
+  bottom: -10px;
+  left: 2%;
 
-    position: absolute;
-    top: -200px;
+  width: 96%;
+  height: 10px;
 
-    width: 100%;
-    margin: 50px 0;
-
-    text-align: center;
+  composes: shader shadow;
 }
