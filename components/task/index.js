@@ -10,7 +10,7 @@ export default ({ taskId, description, checked, dispatch }) => {
     <li>
       <Icon type={ checked ? 'finished' : 'unfinished' } onClick={ () => dispatch(toggleAction) } />
       <span>{ description }</span>
-      <Icon type='cancel' onClick={ () => dispatch(removeAction) } />
+      <Icon type='times' onClick={ () => dispatch(removeAction) } />
     </li>
   );
 };

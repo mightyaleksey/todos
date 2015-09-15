@@ -1,0 +1,22 @@
+.common
+{
+  cursor: pointer;
+}
+
+.finished
+{
+  composes: common;
+  composes: fa fa-check from 'font-awesome/css/font-awesome.css';
+}
+
+.unfinished
+{
+  composes: common;
+  composes: fa fa-circle-thin from 'font-awesome/css/font-awesome.css';
+}
+
+.times
+{
+  composes: common;
+  composes: fa fa-times from 'font-awesome/css/font-awesome.css';
+}

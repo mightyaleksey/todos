@@ -1,5 +1,9 @@
 import React from 'react';
 
 export default ({ children }) => {
-  return <header>{ children }</header>;
+  return (
+    <header>
+      <h1>{ children }</h1>
+    </header>
+  );
 };

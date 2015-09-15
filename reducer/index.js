@@ -30,6 +30,7 @@ export default function reducer(state = initialState, action) {
     task = state.taskList[index];
     task.checked = !task.checked;
     state.taskList.splice(index, 1, assign({}, task));
+    state.taskList = state.taskList.slice();
     return state;
 
   case UPDATE_USER_INPUT:

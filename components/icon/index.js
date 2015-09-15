@@ -1,5 +1,6 @@
 import React from 'react';
+import styles from './index.css';
 
 export default props => {
-  return <i { ...props }>O</i>;
+  return <i className={ styles[props.type] } { ...props }></i>;
 };
