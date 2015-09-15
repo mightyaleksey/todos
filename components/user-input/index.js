@@ -1,5 +1,6 @@
 import { add, updateUserInput } from '../../actions';
 import React, { Component } from 'react';
+import styles from './index.css';
 
 export default class UserInput extends Component {
   submit(key, dispatch) {
@@ -24,6 +25,6 @@ export default class UserInput extends Component {
       value: userInput
     };
 
-    return <input type='text' { ...props } />;
+    return <input type='text' { ...props } { ...styles } />;
   }
 }

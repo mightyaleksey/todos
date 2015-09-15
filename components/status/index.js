@@ -1,6 +1,7 @@
 import React from 'react';
+import styles from './index.css';
 
-export default ({ finishedCount, unfinishedCount }) => {
-  const content = `finished: ${finishedCount}, unfinished: ${unfinishedCount}`;
-  return <p>{ content }</p>;
+export default ({ unfinishedCount }) => {
+  const content = `${unfinishedCount} items left`;
+  return <p { ...styles }>{ content }</p>;
 };

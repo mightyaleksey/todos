@@ -1,4 +1,50 @@
+.shadow
+{
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2), 0 25px 50px 0 rgba(0, 0, 0, .1);
+}
+
+.shader
+{
+  position: absolute;
+
+  display: block;
+
+  content: '';
+
+  background: #fff;
+}
+
 .app
 {
-  composes: container from '../../styles/layout.css';
+  position: relative;
+
+  width: 550px;
+  margin: 0 auto;
+  margin-top: 165px;
+
+  composes: shadow;
+}
+
+.app:before
+{
+  z-index: -1;
+  bottom: -5px;
+  left: 1%;
+
+  width: 98%;
+  height: 5px;
+
+  composes: shader shadow;
+}
+
+.app:after
+{
+  z-index: -2;
+  bottom: -10px;
+  left: 2%;
+
+  width: 96%;
+  height: 10px;
+
+  composes: shader shadow;
 }

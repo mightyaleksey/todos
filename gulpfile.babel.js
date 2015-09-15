@@ -3,6 +3,7 @@ import gulp from 'gulp';
 import vinyl from 'vinyl-source-stream';
 import { resolve } from 'path';
 
+import Autoprefixer from 'autoprefixer';
 import Extract from 'postcss-modules-extract-imports';
 import Local from 'postcss-modules-local-by-default';
 import Scope from 'postcss-modules-scope';
@@ -34,7 +35,8 @@ gulp.task('js', () => browserify()
         assetsPath: 'fonts',
         url: 'copy'
       }),
-      Reporter
+      Reporter,
+      Autoprefixer
     ]
   })
   .bundle({debug: true})
@@ -42,4 +44,4 @@ gulp.task('js', () => browserify()
   .pipe(vinyl('browser.js'))
   .pipe(gulp.dest('static')));
 
-gulp.task('watch', () => gulp.watch(['components/*/*.@(css|js)'], ['js']));
+gulp.task('watch', ['css', 'js'], () => gulp.watch(['components/*/*.@(css|js)'], ['js']));

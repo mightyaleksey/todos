@@ -1,10 +1,19 @@
 .common
 {
+  display: inline-block;
+
+  width: 44px;
+
   cursor: pointer;
+
+  font-size: 30px;
+  line-height: 30px;
 }
 
 .finished
 {
+  text-align: left;
+
   color: #417505;
 
   composes: common;
@@ -13,7 +22,10 @@
 
 .unfinished
 {
-  color: #4d4d4d;
+  text-align: left;
+
+  opacity: .7;
+  color: #777;
 
   composes: common;
   composes: fa fa-circle-thin from 'font-awesome/css/font-awesome.css';
@@ -21,8 +33,16 @@
 
 .times
 {
+  text-align: right;
+
+  opacity: .2;
   color: #d0021b;
 
   composes: common;
   composes: fa fa-times from 'font-awesome/css/font-awesome.css';
+}
+
+.times:hover
+{
+  opacity: 1;
 }
