@@ -4,7 +4,6 @@ import { assign, filter, findIndex } from 'lodash';
 const initialState = {
   taskList: [],
   userInput: '',
-  finishedCount: 0,
   unfinishedCount: 0
 };
 
@@ -21,13 +20,11 @@ export default function reducer(state = initialState, action) {
 
     state.taskList = state.taskList.concat(task);
     state.userInput = '';
-    state.finishedCount = filter(state.taskList, {checked: true}).length;
     state.unfinishedCount = filter(state.taskList, {checked: false}).length;
     return state;
 
   case REMOVE:
     state.taskList = state.taskList.filter(({ taskId }) => taskId !== action.taskId);
-    state.finishedCount = filter(state.taskList, {checked: true}).length;
     state.unfinishedCount = filter(state.taskList, {checked: false}).length;
     return state;
 
@@ -37,7 +34,6 @@ export default function reducer(state = initialState, action) {
     task.checked = !task.checked;
     state.taskList.splice(index, 1, assign({}, task));
     state.taskList = state.taskList.slice();
-    state.finishedCount = filter(state.taskList, {checked: true}).length;
     state.unfinishedCount = filter(state.taskList, {checked: false}).length;
     return state;
 
