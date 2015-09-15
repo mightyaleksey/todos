@@ -10,7 +10,10 @@ import FixPaths from './postcss-fix-paths'
 import Reporter from 'postcss-reporter';
 import Url from 'postcss-url';
 
-gulp.task('default', ['js']);
+gulp.task('default', ['css', 'js']);
+
+gulp.task('css', () => gulp.src('styles/globals.css')
+  .pipe(gulp.dest('static')));
 
 gulp.task('js', () => browserify()
   .add('browser.js')

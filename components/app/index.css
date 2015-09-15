@@ -1,0 +1,4 @@
+.app
+{
+  composes: container from '../../styles/layout.css';
+}

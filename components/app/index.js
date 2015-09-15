@@ -4,6 +4,7 @@ import Header from '../header';
 import TaskList from '../task-list';
 import Status from '../status';
 import UserInput from '../user-input';
+import styles from './index.css';
 
 const ConnectedUserInput = connect(state => ({userInput: state.userInput}))(UserInput);
 const ConnectedTaskList = connect(state => ({taskList: state.taskList}))(TaskList);
@@ -14,7 +15,7 @@ const ConnectedStatus = connect(state => ({
 
 export default props => {
   return (
-    <section>
+    <section className={ styles.app }>
       <Header>todos</Header>
       <ConnectedUserInput />
       <ConnectedTaskList />
