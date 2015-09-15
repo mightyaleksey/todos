@@ -1,11 +1,11 @@
 export const ADD = 'ADD';
 export const REMOVE = 'REMOVE';
 export const TOGGLE = 'TOGGLE';
+export const UPDATE_USER_INPUT = 'UPDATE_USER_INPUT';
 
-export function add(description) {
+export function add() {
   return {
-    type: ADD,
-    description: description
+    type: ADD
   };
 }
 
@@ -21,4 +21,11 @@ export function toggle(taskId) {
     type: TOGGLE,
     taskId: taskId
   };
+}
+
+export function updateUserInput(userInput) {
+  return {
+    type: UPDATE_USER_INPUT,
+    userInput: userInput
+  }
 }

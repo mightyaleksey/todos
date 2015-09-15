@@ -2,15 +2,14 @@ import { remove } from '../../actions';
 import React from 'react';
 import Icon from '../icon';
 
-// smart
-export default ({ taskId, description, dispatch }) => {
+export default ({ taskId, description, checked, dispatch }) => {
   const action = remove(taskId);
 
   return (
     <li>
-      <Icon />
+      <Icon type={ checked ? 'finished' : 'unfinished' } />
       <span>{ description }</span>
-      <Icon onClick={ () => dispatch(action) } />
+      <Icon type='cancel' onClick={ () => dispatch(action) } />
     </li>
   );
 };

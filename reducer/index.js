@@ -1,4 +1,5 @@
-import { ADD, REMOVE, TOGGLE } from '../actions';
+import { ADD, REMOVE, TOGGLE, UPDATE_USER_INPUT } from '../actions';
+import { assign, filter, findIndex } from 'lodash';
 
 const initialState = {
   taskList: [],
@@ -6,13 +7,35 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
+  let task;
+
   switch (action.type) {
   case ADD:
-    break;
+    task = {
+      taskId: Date.now(),
+      description: state.userInput,
+      checked: false
+    };
+
+    state.taskList = state.taskList.concat(task);
+    state.userInput = '';
+    return state;
+
   case REMOVE:
-    break;
+    state.taskList = filter(state.taskList, {taskId: action.taskId});
+    return state;
+
   case TOGGLE:
-    break;
+    const index = findIndex(state.taskList, {taskId: action.taskId});
+    task = state.taskList[index];
+    task.checked = !task.checked;
+    state.taskList.splice(index, 1, assign({}, task));
+    return state;
+
+  case UPDATE_USER_INPUT:
+    state.userInput = action.userInput;
+    return state;
+
   default:
     return state;
   }
