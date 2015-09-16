@@ -1,17 +1,6 @@
 .shadow
 {
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2), 0 25px 50px 0 rgba(0, 0, 0, .1);
-}
-
-.shader
-{
-  position: absolute;
-
-  display: block;
-
-  content: '';
-
-  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2), 0 25px 50px 0 rgba(0, 0, 0, .1), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, .2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, .2);
 }
 
 .app
@@ -23,28 +12,4 @@
   margin-top: 165px;
 
   composes: shadow;
-}
-
-.app:before
-{
-  z-index: -1;
-  bottom: -5px;
-  left: 1%;
-
-  width: 98%;
-  height: 5px;
-
-  composes: shader shadow;
-}
-
-.app:after
-{
-  z-index: -2;
-  bottom: -10px;
-  left: 2%;
-
-  width: 96%;
-  height: 10px;
-
-  composes: shader shadow;
 }
