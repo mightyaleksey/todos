@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 app.set('views', join(__dirname, '../views'));
 app.set('view engine', 'jade');
 
-app.use(express.static(join(__dirname, 'static')));
+app.use(express.static(join(__dirname, '../static')));
 // basic route
 app.get('/', (req, res) => {
   // const store = createStore(reducer);
