@@ -27,9 +27,9 @@
 
 .crossed-text
 {
+  composes: common-text;
+
   text-decoration: line-through;
 
   color: #777;
-
-  composes: common-text;
 }
