@@ -8,7 +8,12 @@ class UserInput extends Component {
   constructor(props) {
     super(props);
 
+    this.onChange = this.onChange.bind(this);
     this.onKeyDown = this.onKeyDown.bind(this);
+  }
+
+  onChange(e) {
+    this.props.onChange(e, e.target.value);
   }
 
   onKeyDown(e) {
@@ -16,7 +21,7 @@ class UserInput extends Component {
       return;
     }
 
-    this.props.onSubmit(e);
+    this.props.onSubmit(e, e.target.value);
   }
 
   render() {
@@ -24,6 +29,7 @@ class UserInput extends Component {
       <input
         type='text'
         {...this.props}
+        onChange={this.onChange}
         onKeyDown={this.onKeyDown}
         {...styles}/>
     );
@@ -31,10 +37,12 @@ class UserInput extends Component {
 }
 
 UserInput.defaultProps = {
+  onChange: function noop() {},
   onSubmit: function noop() {},
 };
 
 UserInput.propTypes = {
+  onChange: PropTypes.func,
   onSubmit: PropTypes.func,
 };
 

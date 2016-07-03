@@ -1,0 +1,48 @@
+.common
+{
+  display: inline-block;
+
+  width: 44px;
+
+  cursor: pointer;
+
+  font-size: 30px;
+  line-height: 30px;
+}
+
+.finished
+{
+  composes: common;
+  composes: fa fa-check from 'font-awesome/css/font-awesome.css';
+
+  text-align: left;
+
+  color: #417505;
+}
+
+.unfinished
+{
+  composes: common;
+  composes: fa fa-circle-thin from 'font-awesome/css/font-awesome.css';
+
+  text-align: left;
+
+  opacity: .7;
+  color: #777;
+}
+
+.times
+{
+  composes: common;
+  composes: fa fa-times from 'font-awesome/css/font-awesome.css';
+
+  text-align: right;
+
+  opacity: .2;
+  color: #d0021b;
+}
+
+.times:hover
+{
+  opacity: 1;
+}

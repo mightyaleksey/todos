@@ -18,4 +18,4 @@ app.get('/', (req, res) => {
   res.render('index', {innerHtml: 'inner'});
 });
 
-app.listen(port, () => console.log(`listening ${port}`));
+app.listen(port, () => console.log(`http://localhost:${port}`));

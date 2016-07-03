@@ -46,6 +46,9 @@
   "vendor-prefix-align": true,
   "sort-order": [
     [
+      "composes"
+    ],
+    [
       "position",
       "z-index",
       "top",
@@ -393,9 +396,6 @@
       "font-emphasize-style",
       "font-smooth",
       "line-height"
-    ],
-    [
-      "composes"
     ]
   ]
 }

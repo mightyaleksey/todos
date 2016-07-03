@@ -1,0 +1,11 @@
+.className
+{
+  margin: 0;
+  padding: 10px 16px;
+
+  color: #777;
+  border-top: 1px solid #ededed;
+  background: #fff;
+
+  font-size: 16px;
+}

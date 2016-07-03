@@ -9,10 +9,15 @@ module.exports = {
   output: {
     filename: 'browser.js',
     path: resolve('static'),
+    publicPath: '/',
   },
 
   module: {
     loaders: [
+      {
+        test: /fonts/i,
+        loader: 'file',
+      },
       {
         test: /\.js/i,
         exclude: /node_modules/,
@@ -31,12 +36,10 @@ module.exports = {
     new NpmInstallPlugin({
       cacheMin: 999999,
       save: true,
-      // saveDev: true,
     }),
   ],
 
   postcss: [
-    require('postcss-url')({url: 'inline'}),
     require('autoprefixer')({browsers: ['last 2 versions']}),
   ],
 };
