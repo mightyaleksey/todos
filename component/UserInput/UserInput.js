@@ -13,7 +13,9 @@ class UserInput extends Component {
   }
 
   onChange(e) {
-    this.props.onChange(e, e.target.value);
+    this.props.onChange(e, {
+      value: e.target.value,
+    });
   }
 
   onKeyDown(e) {
@@ -21,7 +23,9 @@ class UserInput extends Component {
       return;
     }
 
-    this.props.onSubmit(e, e.target.value);
+    this.props.onSubmit(e, {
+      value: e.target.value,
+    });
   }
 
   render() {

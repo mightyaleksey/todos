@@ -1,7 +1,7 @@
 'use strict';
 
 const { connect } = require('react-redux');
-const { createChangeAction, createSubmitAction } = require('../../reducer/createAction');
+const { createChangeAction, createRemoveAction, createSubmitAction } = require('../../reducer/createAction');
 const Header = require('../Header/Header');
 const React = require('react');
 const Status = require('../Status/Status');
@@ -18,6 +18,10 @@ const ConnectedStatus = connect(
 const ConnectedTaskList = connect(
   state => ({
     value: state.tasks,
+  }),
+  dispatch => ({
+    onChange: (_, value) => dispatch(createChangeAction('tasks', value)),
+    onRemove: (_, value) => dispatch(createRemoveAction('tasks', value)),
   })
 )(TaskList);
 
@@ -26,8 +30,8 @@ const ConnectedUserInput = connect(
     value: state.userInput,
   }),
   dispatch => ({
-    onChange: (_, value) => dispatch(createChangeAction('userInput', value)),
-    onSubmit: (_, value) => dispatch(createSubmitAction('userInput', value)),
+    onChange: (_, { value }) => dispatch(createChangeAction('userInput', value)),
+    onSubmit: (_, { value }) => dispatch(createSubmitAction('userInput', value)),
   }),
 )(UserInput);
 

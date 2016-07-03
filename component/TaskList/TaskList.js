@@ -1,23 +1,58 @@
 'use strict';
 
+const { Component, PropTypes } = require('react');
 const React = require('react');
 const Task = require('../Task/Task');
 const styles = require('./TaskList.css');
 
-module.exports = TaskList;
+class TaskList extends Component {
+  constructor(props) {
+    super(props);
 
-/**
- * @param {object} props
- * @param {string[]} props.value
- */
-function TaskList(props) {
-  const tasks = props.value.map((value, i) => (
-    <Task description={value} key={`_${i}${value}`}/>
-  ));
+    this.onChange = this.onChange.bind(this);
+    this.onRemove = this.onRemove.bind(this);
+  }
 
-  return (
-    <ul {...styles}>
-      {tasks}
-    </ul>
-  );
+  onChange() {
+    this.props.onChange.apply(this, arguments);
+  }
+
+  onRemove() {
+    this.props.onRemove.apply(this, arguments);
+  }
+
+  render() {
+    const { styles, value } = this.props;
+
+    return (
+      <ul {...styles}>
+        {this.renderTasks(value)}
+      </ul>
+    );
+  }
+
+  renderTasks(tasks) {
+    return tasks.map(({ checked, value }, i) => (
+      <Task
+        checked={checked}
+        description={value}
+        key={`_${i}${value}`}
+        onChange={this.onChange}
+        onRemove={this.onRemove}/>
+    ));
+  }
 }
+
+TaskList.defaultProps = {
+  onChange: function noop() {},
+  onRemove: function noop() {},
+  styles,
+};
+
+TaskList.propTypes = {
+  onChange: PropTypes.func,
+  onRemove: PropTypes.func,
+  styles: PropTypes.object,
+};
+
+module.exports = TaskList;
