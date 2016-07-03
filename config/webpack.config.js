@@ -1,6 +1,7 @@
 'use strict';
 
 const { resolve } = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const NpmInstallPlugin = require('npm-install-webpack-plugin');
 
@@ -32,6 +33,9 @@ module.exports = {
   },
 
   plugins: [
+    new CopyWebpackPlugin([{
+      from: 'styles/globals.css',
+    }]),
     new ExtractTextPlugin('styles.css'),
     new NpmInstallPlugin({
       cacheMin: 999999,
