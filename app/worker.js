@@ -15,7 +15,7 @@ app.use(express.static(join(__dirname, '../static')));
 app.get('/', (req, res) => {
   // const store = createStore(reducer);
   // const html = renderToString(<Container store={ store } />);
-  res.render('index', {innerHtml: 'inner'});
+  res.render('index');
 });
 
 app.listen(port, () => console.log(`http://localhost:${port}`));
