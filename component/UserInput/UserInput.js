@@ -35,7 +35,7 @@ class UserInput extends Component {
         {...this.props}
         onChange={this.onChange}
         onKeyDown={this.onKeyDown}
-        {...styles}/>
+        {...this.props.styles}/>
     );
   }
 }
@@ -43,11 +43,13 @@ class UserInput extends Component {
 UserInput.defaultProps = {
   onChange: function noop() {},
   onSubmit: function noop() {},
+  styles,
 };
 
 UserInput.propTypes = {
   onChange: PropTypes.func,
   onSubmit: PropTypes.func,
+  styles: PropTypes.object,
 };
 
 module.exports = UserInput;

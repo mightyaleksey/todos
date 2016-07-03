@@ -1,5 +1,6 @@
 'use strict';
 
+const { PropTypes } = require('react');
 const { connect } = require('react-redux');
 const { createChangeAction, createRemoveAction, createSubmitAction } = require('../../reducer/createAction');
 const Header = require('../Header/Header');
@@ -37,9 +38,9 @@ const ConnectedUserInput = connect(
 
 module.exports = App;
 
-function App() {
+function App(props) {
   return (
-    <section className={ styles.app }>
+    <section className={props.styles.app}>
       <Header>todos</Header>
       <ConnectedUserInput/>
       <ConnectedTaskList/>
@@ -47,3 +48,11 @@ function App() {
     </section>
   );
 }
+
+App.defaultProps = {
+  styles,
+};
+
+App.propTypes = {
+  styles: PropTypes.object,
+};
