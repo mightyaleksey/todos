@@ -32,7 +32,6 @@ class UserInput extends Component {
     return (
       <input
         type='text'
-        {...this.props}
         onChange={this.onChange}
         onKeyDown={this.onKeyDown}
         {...this.props.styles}/>

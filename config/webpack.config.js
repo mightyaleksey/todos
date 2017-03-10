@@ -27,7 +27,7 @@ module.exports = {
       {
         test: /\.css$/i,
         loader: ExtractTextPlugin.extract('style',
-          'css?modules&localIdentName=[name]--[local]&importLoaders=1!postcss'),
+          'css?modules&localIdentName=[name]__[local]___[hash:base64:5]&importLoaders=1!postcss'),
       },
     ],
   },
